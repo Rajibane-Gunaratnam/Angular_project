@@ -1,6 +1,13 @@
+import { Major } from '../models/Major.js';
+import { Student } from './student.js';
+
+
+
 export interface Ticket {
   title?: string;
   description?: string;
   date?: Date;
-  author?: string;
+  student?: Student;
+  major?: Major;
+  archived?: boolean;
 }

@@ -17,14 +17,20 @@ export class TicketComponent implements OnInit {
 
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() deleteEvent = new EventEmitter<Ticket>();
 
   constructor() {
   }
 
   ngOnInit() {
   }
-
+//Fonction permettant à l'utilisateur de selectionner ou supprimer tickets :
   selectTicket() {
     this.ticketHasBeenSelected.emit(true);
   }
+
+  deleteTicket() {
+    this.deleteEvent.emit(this.ticket);
+  }
+
 }

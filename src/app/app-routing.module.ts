@@ -1,17 +1,21 @@
 // app-routing.module.ts
-
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { StudentListComponent } from './path-to-student-list-component/student-list.component';
-import { UserListComponent } from './tickets/ticket-list/ticket-list.component';
+import { RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+import { TicketFormComponent } from './tickets/ticket-form/ticket-form.component';
+import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
+import { StudentListComponent } from './student/student-list/student-list.component';
 
 const routes: Routes = [
-  { path: 'students', component: StudentListComponent },
-  { path: 'tickets', component: TicketListComponent },
+    {path: 'ajout', component: TicketFormComponent},
+    {path: 'ticket', component: TicketListComponent},
+ // {path: 'students', component: StudentListComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+
+}

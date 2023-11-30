@@ -26,5 +26,30 @@ export class TicketService {
   addTicket(ticket: Ticket) {
     // You need here to update the list of ticket and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
+
+    this.ticketList.push(ticket);
+    this.tickets$.next(this.ticketList); 
+
   }
+
+  /*deleteTicket(ticket: Ticket) {
+    const index = this.ticketList.indexOf(ticket);
+  
+    if (index !== -1) {
+      this.ticketList.splice(index, 1);
+  
+      // Utilisation de slice() pour créer une copie de la liste
+      this.tickets$.next(this.ticketList.slice());
+    }
+  }*/
+  archiveTicket(ticket: Ticket) {
+    const index = this.ticketList.indexOf(ticket);
+  
+    if (index !== -1) {
+      // Mettez à jour le statut archivé
+      this.ticketList[index].archived = true;
+      this.tickets$.next(this.ticketList.slice()); // Créez une nouvelle référence à la liste existante
+    }
+  }
+
 }
